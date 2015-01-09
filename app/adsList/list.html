@@ -1,0 +1,31 @@
+<h1>Ads</h1>
+<div class="container-fluid">
+    <ol class="list-unstyled col-xs-12 col-sm-9">
+        <li ng-repeat="ad in ads.ads" class="col-xs-12 col-sm-6 cell-equal">
+            <section>
+                <h2>{{ ad.title}}</h2>
+                <time datetime="{{ ad.date }}">{{ ad.date | date : 'd-MMM-yyyy' }}</time>
+                <div class="row">
+                    <figure class="col-xs-12 col-sm-3 thumbnail">
+                        <img data-ng-src="{{ ad.imageDataUrl }}" ng-if="ad.imageDataUrl" class="img-responsive" alt="{{ ad.title }} image">
+                        <img src="https://placehold.it/300/ffffff/333333&amp;text=No+image" ng-if="!ad.imageDataUrl" alt="No image available fallback">
+                    </figure>
+                    <div class="col-xs-12 col-sm-9">
+                        <p class="well">
+                            {{ ad.text }}
+                        </p>
+                        <dl>
+                            <dt>Name</dt>
+                            <dd>{{ ad.ownerName }}</dd>
+                            <dt>Email</dt>
+                            <dd><a href="mailto:{{ ad.ownerEmail }}">{{ ad.ownerEmail }}</a></dd>
+                            <dt>Phone</dt>
+                            <dd><a href="tel:{{ ad.ownerPhone }}">{{ ad.ownerPhone }}</a></dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+        </li>
+    </ol>
+    <div class="col-xs-12 col-sm-3"></div>
+</div>
